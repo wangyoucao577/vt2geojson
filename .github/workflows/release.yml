@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build and release
-    - uses: shoukoo/golang-pipeline/go1.13/release@master
+      uses: shoukoo/golang-pipeline/go1.13/release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOOS: linux
@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build and release
-    - uses: shoukoo/golang-pipeline/go1.13/release@master
+      uses: shoukoo/golang-pipeline/go1.13/release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
@@ -33,7 +33,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build and release
-    - uses: shoukoo/golang-pipeline/go1.13/release@master
+      uses: shoukoo/golang-pipeline/go1.13/release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: "386"
@@ -44,7 +44,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build and release
-    - uses: shoukoo/golang-pipeline/go1.13/release@master
+      uses: shoukoo/golang-pipeline/go1.13/release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
@@ -55,7 +55,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build and release
-    - uses: shoukoo/golang-pipeline/go1.13/release@master
+      uses: shoukoo/golang-pipeline/go1.13/release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: "386"
@@ -66,7 +66,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build and release
-    - uses: shoukoo/golang-pipeline/go1.13/release@master
+      uses: shoukoo/golang-pipeline/go1.13/release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
