@@ -3,6 +3,7 @@ name: Release Go Binaries
 on: 
   push:
     tags: 
+    - '**'
 
 jobs:
   release-linux-386:
