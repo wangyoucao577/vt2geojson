@@ -1,9 +1,8 @@
 name: Release Go Binaries
 
 on: 
-  push:
-    tags: 
-    - '**'
+  release:
+    types: [created]
 
 jobs:
   release-linux-386:
