@@ -1,4 +1,5 @@
 # vt2geojson
+![Go Build & Test](https://github.com/wangyoucao577/vt2geojson/workflows/Go%20Build%20&%20Test/badge.svg)    
 Dump vector tiles to GeoJSON.     
 Similar with [mapbox/vt2geojson](https://github.com/mapbox/vt2geojson), but implemented by `Golang` and based on [paulmach/orb](github.com/paulmach/orb/) library.     
 
