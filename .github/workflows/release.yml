@@ -16,6 +16,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOOS: linux
         GOARCH: "386"
+        PROJECT_PATH: "./cmd/vt2geojson"
   release-linux-amd64:
     name: release linux/amd64
     runs-on: ubuntu-latest
@@ -27,6 +28,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
         GOOS: linux
+        PROJECT_PATH: "./cmd/vt2geojson"
   release-darwin-386:
     name: release darwin/386
     runs-on: ubuntu-latest
@@ -38,6 +40,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: "386"
         GOOS: darwin
+        PROJECT_PATH: "./cmd/vt2geojson"
   release-darwin-amd64:
     name: release darwin/amd64
     runs-on: ubuntu-latest
@@ -49,6 +52,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
         GOOS: darwin
+        PROJECT_PATH: "./cmd/vt2geojson"
   release-windows-386:
     name: release windows/386
     runs-on: ubuntu-latest
@@ -60,6 +64,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: "386"
         GOOS: windows
+        PROJECT_PATH: "./cmd/vt2geojson"
   release-windows-amd64:
     name: release windows/amd64
     runs-on: ubuntu-latest
@@ -71,3 +76,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
         GOOS: windows
+        PROJECT_PATH: "./cmd/vt2geojson"
