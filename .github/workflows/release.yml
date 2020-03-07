@@ -9,68 +9,18 @@ env:
 
 
 jobs:
-  release-linux-386:
-    name: release linux/386
+  releases-matrix:
+    name: Release Matrix
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [linux, windows, darwin]
+        goarch: ["386", amd64]
     steps:
     - uses: actions/checkout@v2
-    - name: build and release
-      uses: wangyoucao577/go-release-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOOS: linux
-        GOARCH: "386"
+    - uses: wangyoucao577/go-release-action@master
       with:
-        project_path: "${{ env.CMD_PATH }}"
-  release-linux-amd64:
-    name: release linux/amd64
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: build and release
-      uses: wangyoucao577/go-release-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOOS: linux
-        GOARCH: amd64
-      with:
-        project_path: "${{ env.CMD_PATH }}"
-  release-darwin-amd64:
-    name: release darwin/amd64
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: build and release
-      uses: wangyoucao577/go-release-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOOS: darwin
-        GOARCH: amd64
-      with:
-        project_path: "${{ env.CMD_PATH }}"
-  release-windows-386:
-    name: release windows/386
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: build and release
-      uses: wangyoucao577/go-release-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOOS: windows
-        GOARCH: "386"
-      with:
-        project_path: "${{ env.CMD_PATH }}"
-  release-windows-amd64:
-    name: release windows/amd64
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: build and release
-      uses: wangyoucao577/go-release-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOOS: windows
-        GOARCH: amd64
-      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        goos: ${{ matrix.goos }}
+        goarch: ${{ matrix.goarch }}
         project_path: "${{ env.CMD_PATH }}"
