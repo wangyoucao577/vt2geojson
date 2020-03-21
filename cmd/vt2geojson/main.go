@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
+	"os"
 	"regexp"
 	"strconv"
 
@@ -48,17 +48,20 @@ func main() {
 	}
 
 	if len(flags.mvtSource) == 0 {
-		log.Fatalf("Please specify the mvt file or URI by '-mvt'")
+		fmt.Println("Please specify the mvt file or URI by '-mvt'.")
+		os.Exit(1)
 	}
 
 	content, err := loadMVT(flags.mvtSource)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	layers, err := unmarshalMVT(content, flags.gzipped)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	if flags.summary {
@@ -71,12 +74,14 @@ func main() {
 	if flags.x == 0 && flags.y == 0 && flags.z == 0 { // if all x,y,z are NOT set, try to parse from URL
 		tile, err = tryParseTileXYZ(flags.mvtSource)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
+			os.Exit(1)
 		}
 	} else { // otherwise use the flags set directly
 		tile = maptile.New(uint32(flags.x), uint32(flags.y), maptile.Zoom(flags.z))
 		if !tile.Valid() {
-			log.Fatalf("Invalid flags x,y,z: %d,%d,%d", flags.x, flags.y, flags.z)
+			fmt.Printf("Invalid flags x,y,z: %d,%d,%d\n", flags.x, flags.y, flags.z)
+			os.Exit(1)
 		}
 	}
 	layers.ProjectToWGS84(tile)
@@ -96,7 +101,7 @@ func main() {
 	}
 	geojsonContent, err := newFeatureCollection.MarshalJSON()
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	fmt.Printf("%s\n", geojsonContent)
 }
