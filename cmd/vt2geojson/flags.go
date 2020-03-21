@@ -3,13 +3,14 @@ package main
 import "flag"
 
 var flags struct {
-	mvtSource string
-	layer     string
-	summary   bool
-	x         uint
-	y         uint
-	z         uint
-	gzipped   bool
+	mvtSource    string
+	layer        string
+	summary      bool
+	x            uint
+	y            uint
+	z            uint
+	gzipped      bool
+	printVersion bool
 }
 
 func init() {
@@ -20,4 +21,5 @@ func init() {
 	flag.UintVar(&flags.y, "y", 0, "Tile x coordinate (normally inferred from the URL, e.g. 'z/x/y.mvt' or 'z/x/y.vector.pbf')")
 	flag.UintVar(&flags.z, "z", 0, "Tile zoom level (normally inferred from the URL, e.g. 'z/x/y.mvt' or 'z/x/y.vector.pbf')")
 	flag.BoolVar(&flags.gzipped, "gzipped", true, "Whether uncompress the '.mvt' by gzip or not. '.mvt' comes from mapbox server is always gzipped, whatever with the 'Accept-Encoding: gzip' or not.")
+	flag.BoolVar(&flags.printVersion, "version", false, "Print version.")
 }
