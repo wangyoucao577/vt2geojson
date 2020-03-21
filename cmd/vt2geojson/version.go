@@ -10,7 +10,6 @@ var (
 	buildTime  = notSet
 	gitCommit  = notSet
 	gitRef     = notSet
-	compiler   = notSet
 )
 
 func printVersion() {
@@ -18,5 +17,4 @@ func printVersion() {
 	fmt.Printf("Build Time: %s\n", buildTime)
 	fmt.Printf("Git Commit: %s\n", gitCommit)
 	fmt.Printf("Git Ref:    %s\n", gitRef)
-	fmt.Printf("Compiler:   %s\n", compiler)
 }
