@@ -42,6 +42,11 @@ func tryParseTileXYZ(mvtSource string) (maptile.Tile, error) {
 func main() {
 	flag.Parse()
 
+	if flags.printVersion {
+		printVersion()
+		return
+	}
+
 	if len(flags.mvtSource) == 0 {
 		log.Fatalf("Please specify the mvt file or URI by '-mvt'")
 	}
