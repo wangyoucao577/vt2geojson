@@ -2,4 +2,4 @@ module github.com/wangyoucao577/vt2geojson
 
 go 1.13
 
-require github.com/paulmach/orb v0.2.1
+require github.com/paulmach/orb v0.3.0
